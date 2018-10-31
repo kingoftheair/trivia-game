@@ -21,38 +21,48 @@ text-align:center;
     text-align:center;
 }
 
-#answer1, #answer2, #answer3, #answer4 {
+#answer1 {
 
 }
 
-#answer1:hover, #answer2:hover, #answer3:hover, #answer4:hover {
+#answer1:hover {
     background-color:yellow;
     width:50px;
 }
 
-#answer2-1, #answer2-2, #answer2-3, #answer2-4 {
+#answer2 {
 
 }
 
-#answer2-1:hover, #answer2-2:hover, #answer2-3:hover, #answer2-4:hover{
+#answer2:hover {
     background-color:yellow;
-    width:150px;
+    width:50px;
 }
 
-#answer3-1, #answer3-2, #answer3-3, #answer3-4 {
+#answer3 {
 
 }
 
-#answer3-1:hover, #answer3-2:hover, #answer3-3:hover, #answer3-4:hover  {
+#answer3:hover {
     background-color:yellow;
-    width:150px;
+    width:50px;
 }
 
-#answer4-1, #answer4-2, #answer4-3, #answer4-4 {
+#answer4 {
 
 }
 
-#answer4-1:hover, #answer4-2:hover , #answer4-3:hover , #answer4-4:hover  {
+#answer4:hover {
     background-color:yellow;
-    width:150px;
+    width:50px;
 }
+
+
+
+
+
+
+
+
+
+

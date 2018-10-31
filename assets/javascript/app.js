@@ -1,13 +1,16 @@
 
 //define variables used
 var question = " ";
+var questionNumber = 0;
 var answer = [];
-var correctAnswer = [];
-var question = "";
+var incorrectAnswerTotal = 0;
+var correctAnswerTotal = 0;
 var answer = [];
-var timer = 30;
+var unansweredTotal = 0;
+var timer = 31;
 var countdown;
 var userPick;
+
 
 //questions and answers
 var questions = [{
@@ -30,90 +33,131 @@ var questions = [{
 
 //functions used
 
-function timeStart () {
+function timerStart () {
     clearInterval(countdown);
+    timer = 31;
     countdown = setInterval(timerCountDown, 1000);
-}
+};
 
 function timerCountDown () {
     timer--;
     $("#timeRemain").text("Time Remaining: " + timer + " seconds");
+    stopTimer();
+        $("#question").text("Time's Up! The correct answer is " + questions[questionNumber].correctAnswer);
+        $("#answer").html(questions[questionNumber].pic);
+        unansweredTotal++;
+        next();
+};
+
+function stopTimer () {
+    clearInterval(countdown)
 }
 
-function questionCall1() {
+function question1 () {
     $("#question").text(questions[0].question);
-    $("#answer1").text(questions[0].answer[0]);
-    $("#answer2").text(questions[0].answer[1]);
-    $("#answer3").text(questions[0].answer[2]);
-    $("#answer4").text(questions[0].answer[3]);
-    $("#answer4").on("click", function(){
-    $("#question2").hide();
-    $("#answer1").hide();
-    $("#answer2").hide();
-    $("#answer3").hide();
-    $("#answer4").hide();
-    questionCall2();
-    timer = 30
-    timeStart();
- });
+
+}
+function question2 () {
+    $("#question").text(questions[1].question);
+
+}
+function question3 () {
+    $("#question").text(questions[2].question);
+
+}
+function question4 () {
+    $("#question").text(questions[3].question);
+
 }
 
+function answer1 () {
+    $("#answer").append("<p id='firstans'>"+ questions[0].answer[0] + "<p>")
+    $("#answer").append("<p id='secondans'>"+ questions[0].answer[1] + "<p>")
+    $("#answer").append("<p id='thirdans'>"+ questions[0].answer[2] + "<p>")
+    $("#answer").append("<p id='fourthans'>"+ questions[0].answer[3] + "<p>")
+    if (
+    $("#fourthans").on("click", function () {
+        console.log("correct");
+        stopTimer();
+        $("#question").text("You got it right!");
+        $("#answer").html('<img src="assets/images/hills.jpg" />')
+        correctAnswerTotal++;
+        setTimeout(question2, answer2, 2000);
+        //setTimeout(answer2, 2000);
+    })); else { 
+        $("#firstans").on("click", function () {
+            console.log("correct");
+            stopTimer();
+            $("#question").text("You got it right!");
+            $("#answer").html('<img src="assets/images/hills.jpg" />')
+            correctAnswerTotal++;
+            setTimeout(question2, answer2, 2000);
 
-function questionCall2() {
-    $("#question2").text(questions[1].question);
-    $("#answer2-1").text(questions[1].answer[0]);
-    $("#answer2-2").text(questions[1].answer[1]);
-    $("#answer2-3").text(questions[1].answer[2]);
-    $("#answer2-4").text(questions[1].answer[3]);
-    $("#answer2-1").on("click", function(){
-        $("#question2-3").hide();
-        $("#answer2-1").hide();
-        $("#answer2-2").hide();
-        $("#answer2-3").hide();
-        $("#answer2-4").hide();
-        questionCall3();
-        timer = 30
-        timeStart();
-     });
+    })
 }
 
-function questionCall3() {
-    $("#question3").text(questions[2].question);
-    $("#answer3-1").text(questions[2].answer[0]);
-    $("#answer3-2").text(questions[2].answer[1]);
-    $("#answer3-3").text(questions[2].answer[2]);
-    $("#answer3-4").text(questions[2].answer[3]);
-    $("#answer3-3").on("click", function(){
-        $("#question3").hide();
-        $("#answer3-1").hide();
-        $("#answer3-2").hide();
-        $("#answer3-3").hide();
-        $("#answer3-4").hide();
-        $("#win").show();
-        timer = 30
-       timeStart();
-        questionCall4();
-     });
-}
+    function answer2 () {
+        $("#answer").append("<p id='firstans'>"+ questions[1].answer[0] + "<p>")
+        $("#answer").append("<p id='secondans'>"+ questions[1].answer[1] + "<p>")
+        $("#answer").append("<p id='thirdans'>"+ questions[1].answer[2] + "<p>")
+        $("#answer").append("<p id='fourthans'>"+ questions[1].answer[3] + "<p>")
+        $("#firstans").on("click", function () {
+            console.log("correct");
+            stopTimer();
+            $("#question").text("You got it right!");
+            $("#answer").hide();
+        });
+        
+    }
 
-function questionCall4() {
-    $("#question4").text(questions[3].question);
-    $("#answer4-1").text(questions[3].answer[0]);
-    $("#answer4-2").text(questions[3].answer[1]);
-    $("#answer4-3").text(questions[3].answer[2]);
-    $("#answer4-4").text(questions[3].answer[3]);
-    $("#answer4-1").on("click", function(){
-     });
-}
+        function answer3 () {
+            $("#answer").append("<p id='firstans'>"+ questions[2].answer[0] + "<p>")
+            $("#answer").append("<p id='secondans'>"+ questions[2].answer[1] + "<p>")
+            $("#answer").append("<p id='thirdans'>"+ questions[2].answer[2] + "<p>")
+            $("#answer").append("<p id='fourthans'>"+ questions[2].answer[3] + "<p>")
+            $("#thirdans").on("click", function () {
+                console.log("correct");
+                stopTimer();
+                $("#question").text("You got it right!");
+                $("#answer").hide();
+            });
+        }
+
+            function answer4 () {
+                $("#answer").append("<p id='firstans'>"+ questions[3].answer[0] + "<p>")
+                $("#answer").append("<p id='secondans'>"+ questions[3].answer[1] + "<p>")
+                $("#answer").append("<p id='thirdans'>"+ questions[3].answer[2] + "<p>")
+                $("#answer").append("<p id='fourthans'>"+ questions[3].answer[3] + "<p>")
+                $("#firstans").on("click", function () {
+                    console.log("correct");
+                    stopTimer();
+                    $("#question").text("You got it right!");
+                    $("#answer").hide();
+                });
+            }
+           
+            $("#firstans").on("click", function () {
+                console.log("wrong");
+            });
+            $("#secondans").on("click", function () {
+                console.log("wrong");
+            });
+            $("#thirdhans").on("click", function () {
+                console.log("wrong");
+            });
+    
 
 
 
 $(document).ready(function() {
-$("#start").on("click", function() {
-    $("#start").hide();
-    timeStart();
-    setTimeout(questionCall1, 1000);
+    $("#start").on("click", function() {
+        $("#start").hide();
+        timerStart();
+        setTimeout(question1, 1000);
+        setTimeout(answer1, 1000);
 
-});
+     
+
+    });
 });
 
