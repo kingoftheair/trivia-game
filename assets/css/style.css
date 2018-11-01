@@ -21,41 +21,21 @@ text-align:center;
     text-align:center;
 }
 
-#answer1 {
-
+#answer1-1, #answer1-2, #answer1-3, #answer1-4 {
+width:100px;
 }
 
-#answer1:hover {
-    background-color:yellow;
-    width:50px;
+#answer2-1, #answer2-2, #answer2-3, #answer2-4 {
+    width:110px;
 }
 
-#answer2 {
-
+#answer3-1, #answer3-2, #answer3-3, #answer3-4 {
+    width:120px;
 }
 
-#answer2:hover {
-    background-color:yellow;
-    width:50px;
-}
 
-#answer3 {
 
-}
 
-#answer3:hover {
-    background-color:yellow;
-    width:50px;
-}
-
-#answer4 {
-
-}
-
-#answer4:hover {
-    background-color:yellow;
-    width:50px;
-}
 
 
 
