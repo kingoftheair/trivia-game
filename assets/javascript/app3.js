@@ -34,10 +34,7 @@ function timerStart () {
     answerClick();
 };
 
-function timerStart2() {
-    clearInterval(countdown);
-    timer = 31;
-}
+
 
 
 //allows timer to count down and fires stopTimer function and removes questions and aswers after game finishes
@@ -50,35 +47,35 @@ function timerCountDown () {
         $("#numberofcorrectanswers").text("Number of Correct Answers:" + correctAnswerTotal);
         $("#numberofincorrectanswers").text("Number of Incorrect Answers:" + incorrectAnswerTotal);
         $("#timeRemain").hide();
-        setTimeout(resetGame, 2000);
-    } if (correctAnswerTotal === 3 && incorrectAnswerTotal === 0 ) {
+        setTimeout(resetGame, 1000);
+    } else if (correctAnswerTotal === 3 && incorrectAnswerTotal === 0 ) {
         stopTimer();
         removeQandA();
         $("#numberofcorrectanswers").text("Number of Correct Answers:" + correctAnswerTotal);
         $("#numberofincorrectanswers").text("Number of Incorrect Answers:" + incorrectAnswerTotal);
         $("#timeRemain").hide();
-        setTimeout(resetGame, 2000);
-    } if (correctAnswerTotal === 2 && incorrectAnswerTotal === 1) {
+        setTimeout(resetGame, 1000);
+    } else if (correctAnswerTotal === 2 && incorrectAnswerTotal === 1) {
         stopTimer();
         removeQandA();
         $("#numberofcorrectanswers").text("Number of Correct Answers:" + correctAnswerTotal);
         $("#numberofincorrectanswers").text("Number of Incorrect Answers:" + incorrectAnswerTotal);
         $("#timeRemain").hide();
-        setTimeout(resetGame, 2000);
-    } if (correctAnswerTotal === 1 && incorrectAnswerTotal === 2) {
+        setTimeout(resetGame, 1000);
+    } else if (correctAnswerTotal === 1 && incorrectAnswerTotal === 2) {
         stopTimer();
         removeQandA();
         $("#numberofcorrectanswers").text("Number of Correct Answers:" + correctAnswerTotal);
         $("#numberofincorrectanswers").text("Number of Incorrect Answers:" + incorrectAnswerTotal);
         $("#timeRemain").hide();
-        setTimeout(resetGame, 2000);
-    }  if (correctAnswerTotal === 0 && incorrectAnswerTotal === 3) {
+        setTimeout(resetGame, 1000);
+    }  else if (correctAnswerTotal === 0 && incorrectAnswerTotal === 3) {
         stopTimer();
         removeQandA();
         $("#numberofcorrectanswers").text("Number of Correct Answers:" + correctAnswerTotal);
         $("#numberofincorrectanswers").text("Number of Incorrect Answers:" + incorrectAnswerTotal);
         $("#timeRemain").hide();
-        setTimeout(resetGame, 2000);
+        setTimeout(resetGame, 1000);
     }
 };
 
@@ -201,13 +198,16 @@ function resetGame() {
     $("#numberofcorrectanswers").hide();
     $("#numberofincorrectanswers").hide();
     $("#start").show();
+    correctAnswerTotal = 0;
+    incorrectAnswerTotal = 0;
+    timer = 31
     $(document).ready(function() {
         $("#start").on("click", function() {
             $("#start").hide();
             setTimeout(showQandA, 1000);
-            setTimeout(QuestionsAndAnswers, 1000);     
-            timerStart();
-        });
+            setTimeout(QuestionsAndAnswers, 1000);
+            $("#timeRemain").show();     
+        }); 
     });
 }
 
@@ -220,8 +220,8 @@ $(document).ready(function() {
     $("#start").on("click", function() {
         $(this).hide();
         setTimeout(showQandA, 1000);
-        setTimeout(QuestionsAndAnswers, 1000);     
+        setTimeout(QuestionsAndAnswers, 1000);   
         timerStart();
-    
     });
+    
 });
