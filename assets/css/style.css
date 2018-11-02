@@ -1,9 +1,18 @@
 body {
-    background-color:lightblue;
+    background-image:url("../images/arthur.jpg");
+    background-size:900px 900px;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 
 #title {
     text-align:center;
+}
+
+.container {
+    width:700px;
+    height:100%;
+    border:10px solid lightcyan;
+    background-color:orange;
 }
 
 #start {
@@ -19,21 +28,31 @@ text-align:center;
 
 #timeRemain {
     text-align:center;
+    font-size:55px;
 }
 
 #answer1-1, #answer1-2, #answer1-3, #answer1-4 {
-width:100px;
+width:50px;
+background-color:black;
 }
 
 #answer2-1, #answer2-2, #answer2-3, #answer2-4 {
     width:110px;
+    background-color:black;
 }
 
 #answer3-1, #answer3-2, #answer3-3, #answer3-4 {
     width:120px;
+    background-color:black;
 }
 
+h5 {
+    text-align:center;
+}
 
+h4 {
+    font-size:20px;
+}
 
 
 

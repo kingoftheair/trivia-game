@@ -204,8 +204,6 @@ function showQandA () {
 }
 
 function resetGame() {
-    //$("#numberofcorrectanswers").hide();
-    //$("#numberofincorrectanswers").hide();
     $("#start").show();
     correctAnswerTotal = 0;
     incorrectAnswerTotal = 0;
