@@ -7,6 +7,7 @@ var correctAnswerTotal = 0;
 var unansweredTotal = 0;
 var timer = 31;
 var countdown;
+var answered = false;
 
 
 //questions and answers
@@ -42,6 +43,18 @@ function timerCountDown () {
     //incorrectAnswerTotal == 0;
     $("#timeRemain").text("Time Remaining: " + timer + " seconds");
     if (timer <= 0) {
+        $( "#answer1-1" ).off( "click" );
+        $( "#answer1-2" ).off( "click" );
+        $( "#answer1-3" ).off( "click" );
+        $( "#answer1-4" ).off( "click" );
+        $( "#answer2-1" ).off( "click" );
+        $( "#answer2-2" ).off( "click" );
+        $( "#answer2-3" ).off( "click" );
+        $( "#answer2-4" ).off( "click" );
+        $( "#answer3-1" ).off( "click" );
+        $( "#answer3-2" ).off( "click" );
+        $( "#answer3-3" ).off( "click" );
+        $( "#answer3-4" ).off( "click" );
         stopTimer();
         removeQandA();
         $("#numberofcorrectanswers").text("Number of Correct Answers:" + correctAnswerTotal);
