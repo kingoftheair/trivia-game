@@ -30,7 +30,7 @@ function timerStart () {
     clearInterval(countdown);
     timer = 31;
     countdown = setInterval(timerCountDown, 1000);
-    answerClick();
+    //answerClick();
 };
 
 
@@ -97,6 +97,10 @@ function hideAnswerTotal () {
     $("#numberofcorrectanswers").hide();
     $("#numberofincorrectanswers").hide();
 }
+function showAnswerTotal () {
+    $("#numberofcorrectanswers").show();
+    $("#numberofincorrectanswers").show();
+}
 
 
 //shows the questions and answers on page
@@ -119,7 +123,6 @@ function QuestionsAndAnswers () {
     $("#answer3-2").html(questions[2].answer[1]); 
     $("#answer3-3").html(questions[2].answer[2]); 
     $("#answer3-4").html(questions[2].answer[3]);
-    
 };
   
 function answerClick () {
@@ -273,6 +276,7 @@ function showQandA () {
 //resets game
 function resetGame() {
     hideAnswerTotal();
+    showAnswerTotal();
     $("#timeRemain").hide();
     //$("#start").show();
     correctAnswerTotal = 0;
@@ -300,7 +304,7 @@ $(document).ready(function() {
         setTimeout(showQandA, 1000);
         setTimeout(QuestionsAndAnswers, 1000);   
         timerStart();
-        //answerClick();
+        answerClick();
     });
     
 });
