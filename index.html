@@ -20,13 +20,31 @@
         </div>
     </div>
     <div class="row">
+        <div class="col-4"></div>
+        <div class="col-4">
+            <div id="rules"></div>
+            <div id="rules2"></div>
+            <div id="rules3"></div>
+        </div>
+        <div class="col-4"></div>
+    </div>
+    <div class="row">
         <div class="col-12">
             <h3 id="start">Start</h3>
         </div>
     </div>
     <div class="row">
+        <div class="col-4" id="musiccol">
+            <p id="tuneP">Music?</p>
+                    <div class="tunes"></div>
+                    <input type="button" id="dattune" value="Play" onclick="play()"><audio id="audio" src="assets/audio/Mountain sun.m4a" ></audio>
+                    <input type="button" id="dattune" value="Pause" onclick="play()"><audio id="audio" src="assets/audio/Mountain sun.m4a" ></audio>
+        </div>
+        <div class="col-8"></div>
+    </div>
+    <div class="row">
         <div class="col-12">
-            <h3 id="timeRemain"></h3>
+            <h3 id="timeRemain" class="blinking"></h3>
         </div>
     </div>
     <div class="row">

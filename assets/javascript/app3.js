@@ -32,8 +32,19 @@ function timerStart () {
     clearInterval(countdown);
     timer = 31;
     countdown = setInterval(timerCountDown, 1000);
-    //answerClick();
 };
+
+//to play music option on page
+function play() {
+    var audio = document.getElementById('audio');
+    if (audio.paused) {
+        audio.play();
+        
+    }else{
+        audio.pause();
+        audio.currentTime = 0
+    }
+}
 
 
 
@@ -368,12 +379,17 @@ function resetGame() {
 
 //removes questions and answers at beggining before user clicks start to begin
 removeQandA();
-
+$("#rules").text("You will have 30 seconds");
+$("#rules2").text("You must answer 4 questions");
+$("#rules3").text("Press start to begin...if you wish");
 
 
 //starts the game with click of start button on page
 $(document).ready(function() {
     $("#start").on("click", function() {
+        $("#rules").hide();
+        $("#rules2").hide();
+        $("#rules3").hide();
         $(this).hide();
         setTimeout(showQandA, 1000);
         setTimeout(QuestionsAndAnswers, 1000);   

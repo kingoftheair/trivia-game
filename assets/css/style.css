@@ -15,11 +15,37 @@ body {
     background-color:orange;
 }
 
+
+#rules, #rules2, #rules3 {
+    margin-top:25px;
+    font-size:15px;
+    color:black;
+
+}
+
+#title {
+    animation-duration: 1s;
+    animation-name: slidein;
+}
+
+@keyframes slidein {
+  from {
+    margin-left: 100%;
+    width: 300%; 
+  }
+
+  to {
+    margin-left: 0%;
+    width: 100%;
+  }
+} 
+
 #start {
 width:100px;
 margin: 0 auto;
 margin-top:300px;
 text-align:center;
+
 }
 #start:hover {
     border: solid 10px black;
@@ -60,13 +86,14 @@ h4 {
 }
 
 
-
-
-
-
-
-
-
-
-
+.blinking{
+    animation:blinkingText 0.8s infinite;
+}
+@keyframes blinkingText{
+    0%{     color: #000;    }
+    49%{    color: transparent; }
+    50%{    color: transparent; }
+    99%{    color:transparent;  }
+    100%{   color: #000;    }
+}
 
