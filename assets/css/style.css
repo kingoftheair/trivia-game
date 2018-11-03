@@ -1,6 +1,6 @@
 body {
     background-image:url("../images/arthur.jpg");
-    background-size:900px 900px;
+    background-size:1000px 1000px;
     font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 
@@ -43,6 +43,11 @@ background-color:black;
 
 #answer3-1, #answer3-2, #answer3-3, #answer3-4 {
     width:120px;
+    background-color:black;
+}
+
+#answer4-1, #answer4-2, #answer4-3, #answer4-4 {
+    width:110px;
     background-color:black;
 }
 
