@@ -1,6 +1,5 @@
 // list of variables
 var question = " ";
-var questionNumber = 0;
 var answer = [];
 var correctAnswer = [];
 var incorrectAnswerTotal = 0;
@@ -8,7 +7,6 @@ var correctAnswerTotal = 0;
 var unansweredTotal = 0;
 var timer = 31;
 var countdown;
-var usersPick;
 
 
 //questions and answers
@@ -31,7 +29,7 @@ function timerStart () {
     clearInterval(countdown);
     timer = 31;
     countdown = setInterval(timerCountDown, 1000);
-    //answerClick();
+    answerClick();
 };
 
 
@@ -40,53 +38,46 @@ function timerStart () {
 //allows timer to count down and fires stopTimer function and removes questions and aswers after game finishes
 function timerCountDown () {
     timer--;
+    //correctAnswerTotal == 0;
+    //incorrectAnswerTotal == 0;
     $("#timeRemain").text("Time Remaining: " + timer + " seconds");
     if (timer <= 0) {
         stopTimer();
         removeQandA();
         $("#numberofcorrectanswers").text("Number of Correct Answers:" + correctAnswerTotal);
         $("#numberofincorrectanswers").text("Number of Incorrect Answers:" + incorrectAnswerTotal);
-        setTimeout(hideAnswerTotal, 1000);
-        $("#timeRemain").hide();
-        setTimeout(resetGame, 4000);
+        setTimeout(resetGame, 1000);
     } else if (correctAnswerTotal === 3 && incorrectAnswerTotal === 0 ) {
         stopTimer();
         removeQandA();
         $("#numberofcorrectanswers").text("Number of Correct Answers:" + correctAnswerTotal);
         $("#numberofincorrectanswers").text("Number of Incorrect Answers:" + incorrectAnswerTotal);
-        setTimeout(hideAnswerTotal, 1000);
-        $("#timeRemain").hide();
-        setTimeout(resetGame, 4000);
+        setTimeout(resetGame, 1000);
     } else if (correctAnswerTotal === 2 && incorrectAnswerTotal === 1) {
         stopTimer();
         removeQandA();
         $("#numberofcorrectanswers").text("Number of Correct Answers:" + correctAnswerTotal);
         $("#numberofincorrectanswers").text("Number of Incorrect Answers:" + incorrectAnswerTotal);
-        setTimeout(hideAnswerTotal, 1000);
-        $("#timeRemain").hide();
         setTimeout(resetGame, 4000);
     } else if (correctAnswerTotal === 1 && incorrectAnswerTotal === 2) {
         stopTimer();
         removeQandA();
         $("#numberofcorrectanswers").text("Number of Correct Answers:" + correctAnswerTotal);
         $("#numberofincorrectanswers").text("Number of Incorrect Answers:" + incorrectAnswerTotal);
-        setTimeout(hideAnswerTotal, 1000);
-        $("#timeRemain").hide();
-        setTimeout(resetGame, 4000);
+        setTimeout(resetGame, 1000);
     }  else if (correctAnswerTotal === 0 && incorrectAnswerTotal === 3) {
         stopTimer();
         removeQandA();
         $("#numberofcorrectanswers").text("Number of Correct Answers:" + correctAnswerTotal);
         $("#numberofincorrectanswers").text("Number of Incorrect Answers:" + incorrectAnswerTotal);
-        setTimeout(hideAnswerTotal, 1000);
-        $("#timeRemain").hide();
-        setTimeout(resetGame, 4000);
+        setTimeout(resetGame, 1000);
     }
 };
 
 //clears the timer
 function stopTimer () {
     clearInterval(countdown)
+    timer = 31
 }
 
 function hideAnswerTotal () {
@@ -123,13 +114,33 @@ function answerClick () {
 $("#answer1-4").on("click", function(){ 
     correctAnswerTotal++;
     console.log(correctAnswerTotal);
+    $( "#answer1-1" ).off( "click" );
+    $( "#answer1-2" ).off( "click" );
+    $( "#answer1-3" ).off( "click" );
     $( "#answer1-4" ).off( "click" );
-    $( "#answer1-1,#answer1-2,#answer1-3" ).off( "click" );
 })
-    $("#answer1-1, #answer1-2, #answer1-3").on("click", function(){ 
+    $("#answer1-1").on("click", function(){ 
     incorrectAnswerTotal++;
     console.log(incorrectAnswerTotal);
-    $( "#answer1-1,#answer1-2,#answer1-3" ).off( "click" );
+    $( "#answer1-1" ).off( "click" );
+    $( "#answer1-2" ).off( "click" );
+    $( "#answer1-3" ).off( "click" );
+    $( "#answer1-4" ).off( "click" );
+});
+$("#answer1-2").on("click", function(){ 
+    incorrectAnswerTotal++;
+    console.log(incorrectAnswerTotal);
+    $( "#answer1-1" ).off( "click" );
+    $( "#answer1-2" ).off( "click" );
+    $( "#answer1-3" ).off( "click" );
+    $( "#answer1-4" ).off( "click" );
+});
+$("#answer1-3").on("click", function(){ 
+    incorrectAnswerTotal++;
+    console.log(incorrectAnswerTotal);
+    $( "#answer1-1" ).off( "click" );
+    $( "#answer1-2" ).off( "click" );
+    $( "#answer1-3" ).off( "click" );
     $( "#answer1-4" ).off( "click" );
 });
 
@@ -138,13 +149,33 @@ $("#answer2-1").on("click", function(){
     correctAnswerTotal++;
     console.log(correctAnswerTotal);
     $( "#answer2-1" ).off( "click" );
-    $( "#answer2-2,#answer2-3,#answer2-4" ).off( "click" );
+    $( "#answer2-2" ).off( "click" );
+    $( "#answer2-3" ).off( "click" );
+    $( "#answer2-4" ).off( "click" );
 })
-    $("#answer2-2, #answer2-3, #answer2-4").on("click", function(){ 
+    $("#answer2-2").on("click", function(){ 
     incorrectAnswerTotal++;
     console.log(incorrectAnswerTotal);
-    $( "#answer2-2,#answer2-3,#answer2-4" ).off( "click" );
+    $( "#answer2-2" ).off( "click" );
     $( "#answer2-1" ).off( "click" );
+    $( "#answer2-3" ).off( "click" );
+    $( "#answer2-4" ).off( "click" );
+});
+$("#answer2-3").on("click", function(){ 
+    incorrectAnswerTotal++;
+    console.log(incorrectAnswerTotal);
+    $( "#answer2-2" ).off( "click" );
+    $( "#answer2-1" ).off( "click" );
+    $( "#answer2-3" ).off( "click" );
+    $( "#answer2-4" ).off( "click" );
+});
+$("#answer2-4").on("click", function(){ 
+    incorrectAnswerTotal++;
+    console.log(incorrectAnswerTotal);
+    $( "#answer2-2" ).off( "click" );
+    $( "#answer2-1" ).off( "click" );
+    $( "#answer2-3" ).off( "click" );
+    $( "#answer2-4" ).off( "click" );
 });
 
 //question 3 answer set
@@ -152,14 +183,36 @@ $("#answer3-1").on("click", function(){
     correctAnswerTotal++;
     console.log(correctAnswerTotal);
     $( "#answer3-1" ).off( "click" );
-    $( "#answer3-2,#answer3-3,#answer3-4" ).off( "click" );
+    $( "#answer3-2" ).off( "click" );
+    $( "#answer3-3" ).off( "click" );
+    $( "#answer3-4" ).off( "click" );
+   // $( "#answer3-2,#answer3-3,#answer3-4" ).off( "click" );
 })
-    $("#answer3-2, #answer3-3, #answer3-4").on("click", function(){ 
+    $("#answer3-2").on("click", function(){ 
     incorrectAnswerTotal++;
     console.log(incorrectAnswerTotal);
-    $( "#answer3-2,#answer3-3,#answer3-4" ).off( "click" );
+    $( "#answer3-2").off( "click" );
+    $( "#answer3-3").off( "click" );
+    $( "#answer3-4").off( "click" );
     $( "#answer3-1" ).off( "click" );
 });
+$("#answer3-3").on("click", function(){ 
+    incorrectAnswerTotal++;
+    console.log(incorrectAnswerTotal);
+    $( "#answer3-2").off( "click" );
+    $( "#answer3-3").off( "click" );
+    $( "#answer3-4").off( "click" );
+    $( "#answer3-1" ).off( "click" );
+});
+$("#answer3-4").on("click", function(){ 
+    incorrectAnswerTotal++;
+    console.log(incorrectAnswerTotal);
+    $( "#answer3-2").off( "click" );
+    $( "#answer3-3").off( "click" );
+    $( "#answer3-4").off( "click" );
+    $( "#answer3-1" ).off( "click" );
+});
+
 }
 
 
@@ -203,18 +256,22 @@ function showQandA () {
     $("#answer3-4").show();
 }
 
+
+//resets game
 function resetGame() {
-    $("#start").show();
+    hideAnswerTotal();
+    $("#timeRemain").hide();
+    //$("#start").show();
     correctAnswerTotal = 0;
     incorrectAnswerTotal = 0;
     timer = 31
     $(document).ready(function() {
+        $("#start").show();
         $("#start").on("click", function() {
             $("#start").hide();
             setTimeout(showQandA, 1000);
             setTimeout(QuestionsAndAnswers, 1000);
-            $("#timeRemain").show(); 
-            //timerStart();   
+            $("#timeRemain").show();    
         }); 
     });
 }
@@ -230,7 +287,7 @@ $(document).ready(function() {
         setTimeout(showQandA, 1000);
         setTimeout(QuestionsAndAnswers, 1000);   
         timerStart();
-        answerClick();
+        //answerClick();
     });
     
 });

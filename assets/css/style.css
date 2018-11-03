@@ -23,7 +23,7 @@ text-align:center;
 }
 #start:hover {
     border: solid 10px black;
-    background:yellow;
+    background:white;
 }
 
 #timeRemain {
